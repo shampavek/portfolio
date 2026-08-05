@@ -7,7 +7,7 @@ body {
     min-height: 100%;
     background-image: url('imgs/portfoliobg.jpg');
     background-repeat: no-repeat;                
-    background-size: cover;                
+    background-attachment: fixed;                    
     background-position: center;                 
     font-family: "DotGothic16", sans-serif;
 }
@@ -31,41 +31,21 @@ button{
     padding-left: 2%;
     padding-right: 2%;
 }
-.hero{
-    padding-top: 2%;
-    margin-left: 2%;
-    margin-right: 2%;
-}
-.moving{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-}
+
 
 #me{
-    margin-right: -2%;
+
+    display: block;
+    margin: auto;
+    margin-top: 3%;
     mix-blend-mode: darken;
 }
 
-.csfeatures{
-    margin-top: 5%;
+.desc{
     margin-left: 2%;
     margin-right: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: #FFF3E6;
-    border: 2px solid #FF0000;
-    display: flex;
-    align-items: last baseline;
-    
 }
 
-.csfeatures video{
-    mix-blend-mode: multiply;
-    padding-right: 2%;
-
-}
 
 footer {
     margin-top: 10%;
@@ -81,8 +61,11 @@ footer a{
     color: #FFF3E6;
     text-decoration: none;
 }
-
-footer a:hover{
+.button a{
+    text-decoration: none;
+    color: #FFF3E6;
+}
+a:hover{
     color: black;
 }
 .spark {

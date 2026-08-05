@@ -52,7 +52,7 @@ const photos = [
   },
 
   {
-    img: "imgs/Shraddha.JPG",
+    img: "imgs/Shraddha.jpg",
     letter: " HAPPY TEAKAY DAY!!!!! TWEKNEE FOH IZ CRAYZEE Thank you so very much for being my comfort person. I look back on pictures and you exude radiance, peace & warmth. I know a lot of people are gonna say “finding pics with you is so easy”, and it’s easy for me too but I’m glad 90% of the times I’ve seen you don’t involve photos or videos because I value those random conversations, drives home dropping you off or you beefing with my dad more than anything in the world. No words could ever do justice for expressing how immensely proud I am of you. If there’s anything I hope the world learns from you, I hope it’s the ability to make your presence known. I admire the ability you have to step into rooms where barely anybody knows you and then step out of that room with everyone knowing your name. I know you look up to people as mentors, but the truth is, I never had to look far for a mentor because I’ve had the absolute privilege to look up to you. I think everyone deserves a TeaKay in their life and all of us writing these messages for you are blessed to have you in ours. Thank you for making UofT bearable, thank you for always listening no matter how stupid I sound. Life wouldn’t be the same without you. You make the job of proud best friend easy, I’m eternally grateful for you and eye lauv yew shraddhu 🫶🏽"
   },
 
