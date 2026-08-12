@@ -62,6 +62,10 @@ footer a{
     color: #FFF3E6;
     text-decoration: none;
 }
+
+footer img{
+    mix-blend-mode: overlay;
+}
 .button a{
     text-decoration: none;
     color: #FFF3E6;
@@ -80,6 +84,8 @@ a:hover{
     mix-blend-mode: multiply;
 }
 
+
+
 @keyframes spark {
     from {
         transform: translate(0, 0) scale(1);
@@ -95,7 +101,7 @@ a:hover{
 @media (max-width: 768px) {
 
     body {
-        background-size: auto 100%;
+        background-size: cover;
     }
 
     .hero {

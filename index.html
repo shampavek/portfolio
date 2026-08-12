@@ -9,37 +9,118 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    
 
     <script src="script.js" defer></script>
-     <link rel="icon" href="imgs/favicon.png"">
+     <link rel="icon" href="imgs/favicon.png">
     <title>shampave's portfolio</title>
 </head>
 <body>
     <div class="hero">
         <div class="moving">
-        <button id="me">shampave kandiah</button>
-        <img src="imgs/ocean.gif">
+<div class="name-nav">
+    <button id="me">shampave kandiah</button>
+
+    <nav id="nav-menu">
+        <a href="index.html">work</a>
+        <a href="about.html">about</a>
+        <a href="play.html">play</a>
+    </nav>
+</div>
+
         </div>
         <h3>Design @ UC Davis • <em>Seeking early career roles in tech, retail, and entertainment</em></h3>
         <h1>Design for <em>inclusivity.</em></h1>
         <h2>I’m a <em>Visual + Product designer</em> with an eye for <em>design systems</em> and <em>prototyping accessible and interactive platforms.</em></h2>
+        <h3>see featured works ↘︎</h3>
     </div>
-    <div class="csfeatures">
-        <video width="60%" height="60%" autoplay muted loop>
-            <source src="imgs/ipdemo.mp4" type="video/mp4">
-        </video>
-        <div class="descriptors">
-            <h4><em>0 -> 1 • client work • shipped</em></h4>
-            <h2>Integrative Privacy <button onclick="location.href='casestudy/ip.html'">case study</button></h2>
-            <h3>built a website for a lead data privacy firm, showcasing their story, services, & previous clientele.</h3>
-        </div>
+    <div class="filters">
+
+        <button class="filter-btn active" data-filter="all">all</button>
+        <button class="filter-btn" data-filter="visual">visual</button>
+        <button class="filter-btn" data-filter="product">product</button>
+
     </div>
+    <div class="casestoodies"> 
+        <div class="csfeatures" data-category="product">
+            <img class="ip" src="imgs/ipdemo.gif">
+            <div class="descriptors">
+                <h4><em>0 -> 1 • client work • shipped</em></h4>
+                <h2>Integrative Privacy <button class="cs-btn" onclick="location.href='casestudy/ip.html'">view case study -></button></h2>
+                <h3>Company site for leading privacy firm. Contributed to <em>7 client conversions</em></h3>
+        </div> 
+    </div>
+    <div class="csfeatures" data-category="visual">
+        <img class="map" src="imgs/map.gif">
+            <div class="descriptors">
+                <h4><em> 1 -> 2 • client work • installed</em></h4>
+                <h2>Campus Gardens Map <button class="cs-btn" onclick="location.href='casestudy/map.html'">view case study -></button></h2>
+                <h3>Designed a wayfinding system encompassing <em>multiacreage plot spaces, accessibility spaces, and local amenities.</em></h3>
+        </div>       
+    </div>
+
+        <div class="csfeatures" data-category="visual product">
+
+<div class="opex-carousel">
+
+    <div class="opex-slides">
+        <img src="imgs/opex.gif" class="opex-slide active">
+        <img src="imgs/op-ex-pres.JPG" class="opex-slide">
+        <img src="imgs/op-ex-awards.jpg" class="opex-slide">
+    </div>
+
+    <!-- <button class="carousel-btn prev" aria-label="Previous slide">
+        ←
+    </button>
+
+    <button class="carousel-btn next" aria-label="Next slide">
+        →
+    </button> -->
+
+    <div class="carousel-dots">
+        <button class="dot active" data-slide="0"></button>
+        <button class="dot" data-slide="1"></button>
+        <button class="dot" data-slide="2"></button>
+        <!-- <button class="dot" data-slide="3"></button> -->
+    </div>
+
+</div>
+
+<div class="descriptors">
+    <h4><em>0 -> 1 • hackathon • 1st place</em></h4>
+
+    <h2>
+        OP: EX
+        <button class="cs-btn" onclick="location.href='casestudy/opex.html'">
+            view deck ->
+        </button>
+    </h2>
+
+    <h3>
+        Designed a spy game simulator game for early adolescents to <em>get them off their phones.</em> Presented to industry judges from ServiceNow and Netflix. Won Best Overall Design.
+    </h3>
+</div>
+
+</div>
+    </div>
+
+
 </body>
 
 <footer>
-    <p><a href="https://www.linkedin.com/in/shampave/">connect w/ shampave</a></p>
-    <p><a href="https://drive.google.com/file/d/16YkKdqTRBL_-7MpqAGXAC9O9tFXqgc6l/view">snoop into shampave's experience</a></p>
-    <p>built on html+css+js stack & lemon guava ice tea</p>
+    <img id="ocean" src="imgs/ocean.gif">
+    <div id="socials">
+        <h3>let's work together.</h3>
+         <script>ML="p=lfr vgh@.s:tni/o>mk\"dcea<";
+    MI="JI584H31ECI?2=A<;8IC0I6HDI>F?I897CI?2:GACEB;8IC0I6HDI>F?I897CI?2:GACJ@IB";
+    OT="";for(j=0;j<MI.length;j++){
+    OT+=ML.charAt(MI.charCodeAt(j)-48);
+    }document.write(OT);</script>
+    <div id="socialimg"><a href="https://www.linkedin.com/in/shampave/" target="_blank"><img src="imgs/linkin.png"></a>
+    <a href="https://drive.google.com/file/d/16YkKdqTRBL_-7MpqAGXAC9O9tFXqgc6l/view" target="_blank"><img src="imgs/resume.png"></a></div>
+    </div>
+   
+    
 </footer>
 
 </html>

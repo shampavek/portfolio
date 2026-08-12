@@ -6,9 +6,11 @@ body {
     margin: 0;
     min-height: 100%;
     background-image: url('imgs/portfoliobg.jpg');
-    background-repeat: no-repeat;                
-    background-size: cover;                
-    background-position: center;                 
+    background-size: cover;
+    /* background-repeat: ; */
+    /* background-repeat: repeat-x, repeat-y;                 */
+    /* background-size: 1,00000000000000000000000%;                 */
+    /* background-position: center;                  */
     font-family: "DotGothic16", sans-serif;
 }
 
@@ -44,7 +46,6 @@ button{
 }
 
 #me{
-    margin-right: -2%;
     mix-blend-mode: darken;
 }
 
@@ -70,13 +71,17 @@ button{
 footer {
     margin-top: 10%;
     display: flex;
-    flex-direction: column;
-    align-items: end;
+    flex-direction: row;
+    align-items:center; 
+    /* justify-content: space-around; */
     background-color: #FF0000;
     color: #FFF3E6;
     padding: 3% 2%;
+    justify-content: flex-end;
 }
-
+footer img {
+    max-width: 55%;
+}
 footer a{
     color: #FFF3E6;
     text-decoration: none;
@@ -84,6 +89,11 @@ footer a{
 
 footer a:hover{
     color: black;
+}
+
+footer #ocean{
+    /* margin-left: -10%; */
+    mix-blend-mode: exclusion;
 }
 .spark {
     position: fixed;
@@ -108,77 +118,437 @@ footer a:hover{
     }
 }
 
-@media (max-width: 768px) {
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin: 2%;
+}
+
+.filter-btn {
+    background: #FFF3E6;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #FF0000;
+    color: #FFF3E6;
+}
+
+.casestoodies img{
+    max-width: 50%;
+    padding-top: 2%;
+    padding-right: 2%;
+    max-width: 55%;
+    /* mix-blend-mode: multiply; */
+}
+
+.map{
+    mix-blend-mode: multiply;
+}
+
+.ip{
+    mix-blend-mode: multiply;
+}
+
+.cs-btn {
+    background: black;
+    color: #FFF3E6;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cs-btn:hover,
+.cs-btn.active {
+    background: #FF0000;
+    color: #FFF3E6;
+}
+
+#socials{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+}
+
+#socials img{
+    max-width: 15%;
+}
+
+/* OP: EX CAROUSEL */
+
+.opex-carousel {
+position: relative;
+width: 100%;
+padding-top: 2%;
+padding-right: 2%;
+mix-blend-mode: multiply;
+}
+
+.opex-slides {
+position: relative;
+width: 100%;
+overflow: hidden;
+background: #FFF3E6;
+}
+
+.opex-slide {
+display: none;
+width: 100%;
+height: auto;
+max-width: none !important;
+padding: 0 !important;
+mix-blend-mode: multiply;
+}
+
+.opex-slide.active {
+display: block;
+}
+
+/* Arrow buttons */
+
+.carousel-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+
+
+width: 40px;
+height: 40px;
+padding: 0;
+
+background: #FF0000;
+color: #FFF3E6;
+
+border: 2px solid #FF0000;
+cursor: pointer;
+
+font-size: 1.2rem;
+z-index: 2;
+
+}
+
+.carousel-btn:hover {
+background: #000;
+border-color: #000;
+}
+
+.carousel-btn.prev {
+left: 10px;
+}
+
+.carousel-btn.next {
+right: 10px;
+}
+
+/* Dots */
+
+.carousel-dots {
+display: flex;
+justify-content: center;
+gap: 8px;
+margin-top: 10px;
+}
+
+.carousel-dots .dot {
+width: 10px;
+height: 10px;
+padding: 0;
+
+
+border-radius: 50%;
+background: #FFF3E6;
+border: 2px solid #FF0000;
+
+cursor: pointer;
+
+
+}
+
+.carousel-dots .dot.active {
+background: #FF0000;
+}
+
+.name-nav {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+#me {
+    cursor: pointer;
+}
+
+#nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+
+    opacity: 0;
+    transform: translateX(-15px);
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+#nav-menu.open {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+#nav-menu a {
+    background: #FFF3E6;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+
+    padding: 0.5rem 1rem;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+#nav-menu a:hover {
+    background: #FF0000;
+    color: #FFF3E6;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    /* GENERAL */
 
     body {
         background-size: auto 100%;
+        background-attachment: fixed;
+        overflow-x: hidden;
     }
 
     .hero {
+        padding-top: 5%;
         margin-left: 5%;
         margin-right: 5%;
-        padding-top: 5%;
     }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
 
     .moving {
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
 
-    .moving img {
-        width: 80%;
-        height: auto;
-        margin-top: 5%;
+    .name-nav {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
     }
 
     #me {
-        margin-right: 0;
+        font-size: 0.9rem;
         padding: 3% 5%;
     }
 
-    h1 {
-        font-size: 2.5rem;
+    #nav-menu {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 8px;
+
+        gap: 0.4rem;
+
+        transform: translateY(-10px);
+        opacity: 0;
     }
 
-    h2 {
+    #nav-menu.open {
+        transform: translateY(0);
+    }
+
+    #nav-menu a {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+
+    /* =========================
+       HERO TEXT
+    ========================= */
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-top: 15%;
+    }
+
+    .hero h2 {
         font-size: 1.2rem;
-        line-height: 1.5;
-    }
-
-    h3 {
-        font-size: 1rem;
         line-height: 1.4;
     }
 
+    .hero h3 {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+
+    /* =========================
+       FILTERS
+    ========================= */
+
+    .filters {
+        margin: 8% 5% 5%;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+
+    /* =========================
+       CASE STUDIES
+    ========================= */
+
     .csfeatures {
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-top: 10%;
+        margin: 8% 5%;
         padding: 5%;
+
+        display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+    }
+
+    .csfeatures img {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 5%;
     }
 
     .csfeatures video {
         width: 100%;
-        height: auto;
-        padding-right: 0;
-        order: 1;
+        padding: 0;
     }
 
-     .csfeatures .description {
-        order: 2;
-        text-align: center;
+    .descriptors {
         width: 100%;
     }
 
+    .descriptors h2 {
+        font-size: 1.3rem;
+        line-height: 1.3;
+    }
+
+    .descriptors h3 {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .descriptors h4 {
+        font-size: 0.75rem;
+    }
+
+
+    /* =========================
+       CASE STUDY BUTTONS
+    ========================= */
+
+    .cs-btn {
+        display: block;
+        margin-top: 8px;
+
+        font-size: 0.75rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+
+    /* =========================
+       OP: EX CAROUSEL
+    ========================= */
+
+    .opex-carousel {
+        width: 100%;
+        padding: 0;
+    }
+
+    .opex-slides {
+        width: 100%;
+    }
+
+    .opex-slide {
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel-dots {
+        margin-top: 12px;
+        gap: 10px;
+    }
+
+    .carousel-dots .dot {
+        width: 12px;
+        height: 12px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
-        margin-top: 10%;
-        align-items: center;
-        text-align: center;
-        padding: 8% 5%;
-        gap: 1rem;
+        margin-top: 20%;
+        padding: 10% 5%;
+
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    footer img {
+        max-width: 100%;
+    }
+
+    footer #ocean {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #socials {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #socials h3 {
+        font-size: 1rem;
+    }
+
+    #socials img {
+        max-width: 25%;
+    }
+
+
+    /* =========================
+       UNDER CONSTRUCTION PAGES
+    ========================= */
+
+    .hero > h2 {
+        margin-top: 20%;
+        font-size: 1.4rem;
+        line-height: 1.5;
     }
 
 }
