@@ -78,89 +78,151 @@ function createSparks(x, y) {
 
 
 /* =========================
-   FILTERS
+   FILTERS + RANDOM ORDER
 ========================= */
 
 const filterButtons = document.querySelectorAll(".filter-btn");
-const caseStudies = document.querySelectorAll(".csfeatures");
+const caseStudiesContainer = document.querySelector(".casestoodies");
 
-if (filterButtons.length > 0) {
+const caseStudies = Array.from(
+    document.querySelectorAll(".csfeatures")
+);
 
-    filterButtons.forEach(button => {
 
-        button.addEventListener("click", () => {
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
 
-            filterButtons.forEach(btn =>
-                btn.classList.remove("active")
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    return array;
+}
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        let filtered = caseStudies.filter(card => {
+
+            const categories =
+                card.dataset.category.split(" ");
+
+            return (
+                filter === "all" ||
+                categories.includes(filter)
             );
 
-            button.classList.add("active");
+        });
 
-            const filter = button.dataset.filter;
+        // Randomize order
+        shuffle(filtered);
 
-            caseStudies.forEach(card => {
+        // Hide all
+        caseStudies.forEach(card => {
+            card.style.display = "none";
+        });
 
-                const categories =
-                    card.dataset.category.split(" ");
-
-                if (
-                    filter === "all" ||
-                    categories.includes(filter)
-                ) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-
-            });
-
+        // Show in randomized order
+        filtered.forEach(card => {
+            card.style.display = "flex";
+            caseStudiesContainer.appendChild(card);
         });
 
     });
 
+});
+
+/* =========================
+   HACKDAVIS CAROUSEL
+========================= */
+
+const hdSlides = document.querySelectorAll(".hd-slide");
+const hdDots = document.querySelectorAll(".hd-dot");
+
+if (hdSlides.length && hdDots.length) {
+
+    let hdCurrentSlide = 0;
+
+    function showHdSlide(index) {
+
+        if (index >= hdSlides.length) {
+            hdCurrentSlide = 0;
+        } else if (index < 0) {
+            hdCurrentSlide = hdSlides.length - 1;
+        } else {
+            hdCurrentSlide = index;
+        }
+
+        hdSlides.forEach(slide => {
+            slide.classList.remove("active");
+        });
+
+        hdDots.forEach(dot => {
+            dot.classList.remove("active");
+        });
+
+        hdSlides[hdCurrentSlide].classList.add("active");
+        hdDots[hdCurrentSlide].classList.add("active");
+    }
+
+    hdDots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            showHdSlide(Number(dot.dataset.slide));
+        });
+    });
+
+    showHdSlide(0);
 }
 
 
 /* =========================
-   OP: EX CAROUSEL
+   OP:EX CAROUSEL
 ========================= */
 
-const slides = document.querySelectorAll(".opex-slide");
-const dots = document.querySelectorAll(".carousel-dots .dot");
+const opexSlides = document.querySelectorAll(".opex-slide");
+const opexDots = document.querySelectorAll(".opex-dot");
 
-if (slides.length > 0 && dots.length > 0) {
+if (opexSlides.length && opexDots.length) {
 
-    let currentSlide = 0;
+    let opexCurrentSlide = 0;
 
-    function showSlide(index) {
+    function showOpexSlide(index) {
 
-        if (index >= slides.length) {
-            currentSlide = 0;
+        if (index >= opexSlides.length) {
+            opexCurrentSlide = 0;
         } else if (index < 0) {
-            currentSlide = slides.length - 1;
+            opexCurrentSlide = opexSlides.length - 1;
         } else {
-            currentSlide = index;
+            opexCurrentSlide = index;
         }
 
-        slides.forEach(slide => {
+        opexSlides.forEach(slide => {
             slide.classList.remove("active");
         });
 
-        dots.forEach(dot => {
+        opexDots.forEach(dot => {
             dot.classList.remove("active");
         });
 
-        slides[currentSlide].classList.add("active");
-        dots[currentSlide].classList.add("active");
+        opexSlides[opexCurrentSlide].classList.add("active");
+        opexDots[opexCurrentSlide].classList.add("active");
     }
 
-    dots.forEach(dot => {
-
+    opexDots.forEach(dot => {
         dot.addEventListener("click", () => {
-            showSlide(Number(dot.dataset.slide));
+            showOpexSlide(Number(dot.dataset.slide));
         });
-
     });
 
-    showSlide(0);
+    showOpexSlide(0);
 }
