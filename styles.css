@@ -1366,9 +1366,7 @@ a:focus-visible {
     ----------------------------------------------------- */
 
     body {
-        background-size: auto 100%;
-
-        background-attachment: fixed;
+        background-color: #f6efce;
     }
 
 
