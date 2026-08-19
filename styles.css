@@ -1,5 +1,16 @@
 /* =========================================================
-   GLOBAL
+   SHAMPAVE PORTFOLIO
+   MASTER STYLESHEET
+
+   Pages:
+   - index.html  → Work
+   - about.html  → About
+   - play.html   → Play
+========================================================= */
+
+
+/* =========================================================
+   01. GLOBAL RESET
 ========================================================= */
 
 * {
@@ -9,29 +20,50 @@
 html {
     margin: 0;
     padding: 0;
+
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
-    min-height: 100%;
+    min-height: 100vh;
+
+    background-color: #f6efce;
     background-image: url("imgs/portfoliobg.jpg");
     background-size: 3.25px;
-    font-family: "DotGothic16", sans-serif;
+
     color: #000;
+
+    font-family: "DotGothic16", sans-serif;
+
+    overflow-x: hidden;
 }
 
 img {
     display: block;
+
     max-width: 100%;
     height: auto;
 }
 
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
 button {
-    font-family: "DotGothic16", sans-serif;
     color: #f6efce;
-    background-color: #296840;
+    background: #296840;
+
     border: none;
+
     cursor: pointer;
+}
+
+a {
+    color: inherit;
 }
 
 em {
@@ -41,16 +73,170 @@ em {
 
 
 /* =========================================================
-   HERO
+   02. SHARED TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: normal;
+}
+
+p {
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   03. NAVIGATION
 ========================================================= */
 
 .hero {
     padding-top: 2%;
-    margin: 0;
 }
 
-/* Hero text gets an inset,
-   while the navbar stays flush left. */
+/* =========================================================
+   SITE NAVIGATION
+========================================================= */
+
+.site-nav {
+    position: relative;
+
+    width: calc(100% - 4%);
+    margin: 2%;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+
+    border: 2px solid #296840;
+
+    background: #f6efce;
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   SITE NAME
+========================================================= */
+
+.site-name {
+    display: flex;
+    align-items: center;
+
+    padding: 0.7rem 1rem;
+
+    background: #296840;
+    color: #f6efce;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.site-name:hover {
+    background: #000;
+    color: #f6efce;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.site-links {
+    display: flex;
+
+    align-items: stretch;
+
+    margin-left: auto;
+}
+
+
+.nav-link {
+    display: flex;
+    align-items: center;
+
+    padding: 0.7rem 1.2rem;
+
+    color: #296840;
+
+    background: #f6efce;
+
+    text-decoration: none;
+
+    border-left: 2px solid #296840;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.nav-link:hover {
+    background: #296840;
+    color: #f6efce;
+}
+
+
+/* =========================================================
+   ACTIVE PAGE
+========================================================= */
+
+.nav-link.active {
+    background: #296840;
+    color: #f6efce;
+}
+
+
+/* =========================================================
+   SMALL ARROW
+========================================================= */
+
+.nav-link::after {
+    content: " ↗";
+
+    opacity: 0;
+
+    transform: translateX(-4px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#nav-menu a:hover,
+#nav-menu a:focus-visible {
+    background: #296840;
+    color: #f6efce;
+}
+
+
+/* =========================================================
+   04. SHARED HERO
+========================================================= */
 
 .hero > h1,
 .hero > h2,
@@ -61,109 +247,127 @@ em {
 
 
 /* =========================================================
-   NAVBAR
+   05. HOMEPAGE HERO
 ========================================================= */
 
-.moving {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+.home-hero {
+    padding-bottom: 5%;
+}
+
+.home-intro {
+    margin: 7% 2% 0;
+}
+
+.home-kicker h3 {
+    margin: 0 0 4%;
+
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.home-intro h1 {
+    max-width: 1100px;
+
     margin: 0;
-    padding: 0;
+
+    font-size: clamp(4rem, 9vw, 9rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.04em;
 }
 
-.name-nav {
+.home-intro h2 {
+    max-width: 850px;
+
+    margin-top: 5%;
+
+    font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   06. WORK SECTION INTRO
+========================================================= */
+
+.work-heading {
+    margin: 3% 2% 2%;
+
+    padding: 3%;
+
     display: flex;
-    align-items: center;
-    width: fit-content;
-    margin: 0;
-    padding: 0;
-}
+    align-items: flex-end;
+    justify-content: space-between;
 
-#me {
-    margin-right: 2%;
-    padding: 5% 5% 5% 5%;
-    cursor: pointer;
-    white-space: nowrap;
-    mix-blend-mode: darken;
-}
-
-#nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    margin-left: 0.5rem;
-    margin-top: 0;
-
-    opacity: 0;
-    transform: translateX(-10px);
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
-}
-
-#nav-menu.open {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-}
-
-#nav-menu a {
-    display: block;
-
-    padding: 0.5rem 1rem;
+    gap: 5%;
 
     background: #f6efce;
-    color: #296840;
 
     border: 2px solid #296840;
-
-    text-decoration: none;
-    white-space: nowrap;
 }
 
-#nav-menu a:hover {
-    background: #296840;
-    color: #f6efce;
+.work-heading h4 {
+    margin-bottom: 1rem;
+
+    font-size: 0.8rem;
+}
+
+.work-heading h2 {
+    max-width: 750px;
+
+    margin: 0;
+
+    font-size: clamp(1.7rem, 3.5vw, 3.2rem);
+
+    line-height: 1.2;
+}
+
+.work-heading p {
+    max-width: 300px;
+
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
 }
 
 
 /* =========================================================
-   HERO IMAGE
-========================================================= */
-
-.hero img {
-    max-width: 100%;
-    height: auto;
-    mix-blend-mode: darken;
-}
-
-
-/* =========================================================
-   FILTERS
+   07. FILTERS
 ========================================================= */
 
 .filters {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+
     margin: 2%;
+
+    padding: 0;
 }
 
 .filter-btn {
-    padding: 1% 2%;
+    padding: 0.6rem 1rem;
 
     background: #f6efce;
     color: #296840;
 
     border: 2px solid #296840;
 
-    cursor: pointer;
-    transition: 0.2s ease;
+    font-size: 0.85rem;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
 }
 
 .filter-btn:hover,
@@ -174,38 +378,908 @@ em {
 
 
 /* =========================================================
-   CASE STUDY CARDS
+   08. HOMEPAGE PROJECT GRID
 ========================================================= */
 
-.csfeatures {
-    margin-top: 5%;
-    margin-left: 2%;
-    margin-right: 2%;
+.home-project-grid {
+    margin: 2%;
 
-    padding: 2%;
+    display: grid;
 
-    background-color: #f6efce;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    border: 2px solid #296840;
-
-    display: flex;
-    align-items: center;
     gap: 2%;
 }
 
-/* Left side / visual */
 
+/* =========================================================
+   09. PROJECT CARD
+========================================================= */
+
+.project-card {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+
+/* Featured project */
+
+.featured-project {
+    grid-column: span 2;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
+}
+
+
+/* =========================================================
+   10. PROJECT IMAGE
+========================================================= */
+
+.project-image {
+    position: relative;
+
+    min-width: 0;
+    min-height: 400px;
+
+    overflow: hidden;
+
+    background: #f6efce;
+}
+
+.project-image > img {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    mix-blend-mode: multiply;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.project-card:hover .project-image > img {
+    transform: scale(1.025);
+}
+
+
+/* Image number */
+
+.project-number {
+    position: absolute;
+
+    top: 3%;
+    left: 3%;
+
+    z-index: 5;
+
+    padding: 0.4rem 0.6rem;
+
+    background: #f6efce;
+
+    color: #296840;
+
+    border: 2px solid #296840;
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   11. PROJECT INFORMATION
+========================================================= */
+
+.project-info {
+    min-width: 0;
+
+    padding: 7%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.project-info h4 {
+    margin-bottom: 1rem;
+
+    font-size: 0.75rem;
+
+    line-height: 1.4;
+}
+
+.project-info h2 {
+    margin: 0 0 1rem;
+
+    font-size: clamp(1.6rem, 3vw, 2.7rem);
+
+    line-height: 1.1;
+}
+
+.project-info p {
+    margin: 0;
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+}
+
+.project-info .cs-btn {
+    margin-top: 2rem;
+}
+
+
+/* =========================================================
+   12. CASE STUDY BUTTONS
+========================================================= */
+
+.cs-btn {
+    display: inline-block;
+
+    padding: 0.65rem 1rem;
+
+    background: #000;
+    color: #f6efce;
+
+    border: 2px solid #000;
+
+    font-size: 0.75rem;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.cs-btn:hover,
+.cs-btn:focus-visible {
+    background: #296840;
+
+    color: #f6efce;
+
+    border-color: #296840;
+}
+
+
+/* =========================================================
+   13. HOMEPAGE CAROUSELS
+========================================================= */
+
+.carousel-project {
+    position: relative;
+
+    padding: 0;
+}
+
+.hd-slides,
+.opex-slides {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #f6efce;
+}
+
+.hd-slide,
+.opex-slide {
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none !important;
+
+    padding: 0 !important;
+
+    object-fit: cover;
+
+    mix-blend-mode: multiply;
+}
+
+.hd-slide.active,
+.opex-slide.active {
+    display: block;
+}
+
+
+/* Carousel dots */
+
+.carousel-project .carousel-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 3%;
+
+    z-index: 5;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0;
+}
+
+.carousel-project .carousel-dots button {
+    width: 10px;
+    height: 10px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.carousel-project .carousel-dots button.active {
+    background: #296840;
+}
+
+
+/* =========================================================
+   14. HOMEPAGE BOTTOM STATEMENT
+========================================================= */
+
+.home-statement {
+    margin: 8% 2% 0;
+
+    padding: 6%;
+
+    background: #296840;
+
+    color: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.home-statement h2 {
+    max-width: 900px;
+
+    margin: 0;
+
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.03em;
+}
+
+.home-statement em {
+    color: #f6efce;
+}
+
+.home-statement p {
+    max-width: 600px;
+
+    margin: 4% 0 0;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   15. ABOUT HERO
+========================================================= */
+
+.about-hero {
+    padding-bottom: 5%;
+}
+
+.about-hero h1,
+.play-hero h1 {
+    margin-top: 8%;
+    margin-left: 2%;
+
+    font-size: clamp(4rem, 9vw, 9rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.04em;
+}
+
+.about-hero h2,
+.play-hero h2 {
+    max-width: 800px;
+
+    margin-left: 2%;
+
+    font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   16. ABOUT GRID
+========================================================= */
+
+.about-grid {
+    margin: 2%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 2%;
+}
+
+
+/* =========================================================
+   17. ABOUT CARDS
+========================================================= */
+
+.about-card {
+    min-width: 0;
+
+    padding: 4%;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.about-card h4 {
+    margin: 0 0 2rem;
+
+    font-size: 0.8rem;
+}
+
+.about-card h2 {
+    margin: 0;
+
+    font-size: clamp(1.6rem, 3vw, 2.8rem);
+
+    line-height: 1.2;
+}
+
+.about-card p {
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   18. ABOUT INTRO
+========================================================= */
+
+.about-intro {
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.about-intro h2 {
+    margin-bottom: 10%;
+}
+
+
+/* =========================================================
+   19. ABOUT IMAGE
+========================================================= */
+
+.about-image {
+    position: relative;
+
+    min-width: 0;
+    min-height: 500px;
+
+    overflow: hidden;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    mix-blend-mode: multiply;
+
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.03);
+}
+
+.image-label {
+    position: absolute;
+
+    left: 3%;
+    bottom: 3%;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.25rem;
+
+    padding: 0.7rem 1rem;
+
+    background: #f6efce;
+
+    color: #296840;
+
+    border: 2px solid #296840;
+}
+
+.image-label span {
+    color: #000;
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   20. ABOUT — WHAT I DO
+========================================================= */
+
+.about-list {
+    margin-top: 10%;
+}
+
+.about-list div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    padding: 1rem 0;
+
+    border-top: 1px solid #296840;
+}
+
+.about-list div:last-child {
+    border-bottom: 1px solid #296840;
+}
+
+.about-list span {
+    color: #296840;
+
+    font-size: 0.7rem;
+}
+
+.about-list p {
+    margin: 0;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   21. ABOUT — PHILOSOPHY
+========================================================= */
+
+.about-philosophy {
+    min-height: 400px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   22. ABOUT — FUN FACTS
+========================================================= */
+
+.about-fun ul {
+    margin: 10% 0 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+.about-fun li {
+    padding: 0.8rem 0;
+
+    border-bottom: 1px solid #296840;
+
+    font-size: 0.95rem;
+}
+
+.about-fun li::before {
+    content: "↳ ";
+
+    color: #296840;
+}
+
+
+/* =========================================================
+   23. ABOUT — CONTACT
+========================================================= */
+
+.about-contact {
+    grid-column: span 2;
+
+    padding: 6%;
+
+    background: #296840;
+
+    color: #f6efce;
+
+    border-color: #296840;
+}
+
+.about-contact em {
+    color: #f6efce;
+}
+
+.about-contact p {
+    max-width: 600px;
+}
+
+.about-button {
+    display: inline-block;
+
+    margin-top: 2rem;
+
+    padding: 0.8rem 1.2rem;
+
+    background: #f6efce;
+
+    color: #296840;
+
+    border: 2px solid #f6efce;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.about-button:hover,
+.about-button:focus-visible {
+    background: #000;
+
+    color: #f6efce;
+
+    border-color: #000;
+}
+
+
+/* =========================================================
+   24. PLAY HERO
+========================================================= */
+
+.play-hero {
+    padding-bottom: 5%;
+}
+
+
+/* =========================================================
+   25. PLAY GRID
+========================================================= */
+
+.play-grid {
+    margin: 2%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 2%;
+}
+
+
+/* =========================================================
+   26. PLAY ITEMS
+========================================================= */
+
+.play-item {
+    position: relative;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    aspect-ratio: 1 / 1;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+
+    cursor: crosshair;
+}
+
+.play-item.tall {
+    aspect-ratio: 3 / 4;
+}
+
+.play-item.wide {
+    grid-column: span 2;
+
+    aspect-ratio: 16 / 9;
+}
+
+.play-item img {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.play-item:hover img {
+    transform: scale(1.04);
+
+    filter:
+        grayscale(100%)
+        contrast(1.1);
+}
+
+
+/* Green overlay */
+
+.play-item::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background: #296840;
+
+    opacity: 0;
+
+    mix-blend-mode: multiply;
+
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+}
+
+.play-item:hover::after {
+    opacity: 0.35;
+}
+
+
+/* =========================================================
+   27. PLAY CAPTIONS
+========================================================= */
+
+.play-caption {
+    position: absolute;
+
+    left: 3%;
+    right: 3%;
+    bottom: 3%;
+
+    z-index: 3;
+
+    padding: 1rem;
+
+    background: #f6efce;
+
+    color: #296840;
+
+    border: 2px solid #296840;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.play-item:hover .play-caption {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.play-caption span {
+    display: block;
+
+    margin-bottom: 0.4rem;
+
+    color: #000;
+
+    font-size: 0.7rem;
+}
+
+.play-caption p {
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   28. FOOTER
+========================================================= */
+
+footer {
+    margin-top: 12%;
+
+    padding: 4% 2%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 3%;
+
+    background: #296840;
+
+    color: #f6efce;
+}
+
+footer > img {
+    max-width: 55%;
+}
+
+footer #ocean {
+    mix-blend-mode: exclusion;
+}
+
+footer a {
+    color: #f6efce;
+
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #000;
+}
+
+#socials {
+    min-width: 250px;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 2%;
+}
+
+#socials h3 {
+    margin-bottom: 1rem;
+}
+
+#socialimg {
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-top: 1rem;
+}
+
+#socials img {
+    width: auto;
+
+    max-width: 55px;
+    max-height: 55px;
+}
+
+
+/* =========================================================
+   29. SPARK EFFECT
+========================================================= */
+
+.spark {
+    position: fixed;
+
+    width: 6px;
+    height: 6px;
+
+    z-index: 9999;
+
+    border-radius: 50%;
+
+    background: #296840;
+
+    pointer-events: none;
+
+    mix-blend-mode: multiply;
+
+    animation: spark 600ms ease-out forwards;
+}
+
+@keyframes spark {
+
+    from {
+        transform: translate(0, 0) scale(1);
+
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translate(var(--x), var(--y))
+            scale(0);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   30. LEGACY CASE STUDY SUPPORT
+   Keeps existing case-study pages from breaking.
+========================================================= */
+
+.casestoodies {
+    display: flex;
+    flex-direction: column;
+}
+
+.csfeatures {
+    margin: 5% 2% 0;
+
+    padding: 2%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 2%;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.csfeatures > img,
 .csfeatures > .hd-carousel,
-.csfeatures > .opex-carousel,
-.csfeatures > img {
+.csfeatures > .opex-carousel {
     flex: 1;
+
     min-width: 0;
 }
 
-/* Right side / text */
-
 .csfeatures > .descriptors {
     flex: 1;
+
     min-width: 0;
 }
 
@@ -213,112 +1287,32 @@ em {
     width: 100%;
 }
 
-
-/* =========================================================
-   CASE STUDY IMAGES
-========================================================= */
-
 .casestoodies img {
     max-width: 55%;
+
     padding-top: 2%;
     padding-right: 2%;
 }
 
-.ip {
-    mix-blend-mode: multiply;
-}
-
+.ip,
 .map {
     mix-blend-mode: multiply;
 }
 
-.csfeatures video {
-    max-width: 55%;
-    mix-blend-mode: multiply;
-    padding-right: 2%;
-}
-
-
-/* =========================================================
-   CASE STUDY BUTTONS
-========================================================= */
-
-.cs-btn {
-    padding: 1% 2%;
-
-    background: #000;
-    color: #f6efce;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease;
-}
-
-.cs-btn:hover,
-.cs-btn.active {
-    background: #296840;
-    color: #f6efce;
-}
-
-
-/* =========================================================
-   HACKDAVIS CAROUSEL
-========================================================= */
-
-.hd-carousel {
-    flex: 1;
-    min-width: 0;
-
-    width: 100%;
-    padding: 0;
-
-    mix-blend-mode: multiply;
-}
-
-.hd-slides {
-    position: relative;
-
-    width: 100%;
-
-    overflow: hidden;
-
-    background: #f6efce;
-}
-
-.hd-slide {
-    display: none;
-
-    width: 100%;
-    height: auto;
-
-    max-width: none !important;
-
-    padding: 0 !important;
-
-    mix-blend-mode: multiply;
-}
-
-.hd-slide.active {
-    display: block;
-}
-
-
-/* =========================================================
-   OP:EX CAROUSEL
-========================================================= */
-
+.hd-carousel,
 .opex-carousel {
     flex: 1;
+
     min-width: 0;
 
     width: 100%;
+
     padding: 0;
 
     mix-blend-mode: multiply;
 }
 
+.hd-slides,
 .opex-slides {
     position: relative;
 
@@ -329,6 +1323,7 @@ em {
     background: #f6efce;
 }
 
+.hd-slide,
 .opex-slide {
     display: none;
 
@@ -342,306 +1337,143 @@ em {
     mix-blend-mode: multiply;
 }
 
+.hd-slide.active,
 .opex-slide.active {
     display: block;
 }
 
 
 /* =========================================================
-   CAROUSEL ARROWS
+   31. ACCESSIBILITY
 ========================================================= */
 
-.carousel-btn {
-    position: absolute;
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #000;
 
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 40px;
-    height: 40px;
-
-    padding: 0;
-
-    background: #296840;
-    color: #f6efce;
-
-    border: 2px solid #296840;
-
-    cursor: pointer;
-
-    font-size: 1.2rem;
-
-    z-index: 2;
-}
-
-.carousel-btn:hover {
-    background: #000;
-    border-color: #000;
-}
-
-.carousel-btn.prev {
-    left: 10px;
-}
-
-.carousel-btn.next {
-    right: 10px;
+    outline-offset: 4px;
 }
 
 
 /* =========================================================
-   CAROUSEL DOTS
-========================================================= */
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top: 10px;
-}
-
-.carousel-dots button {
-    width: 10px;
-    height: 10px;
-
-    padding: 0;
-    margin: 0;
-
-    border-radius: 50%;
-
-    background: #f6efce;
-
-    border: 2px solid #296840;
-
-    cursor: pointer;
-}
-
-.carousel-dots button.active {
-    background: #296840;
-}
-
-
-/* =========================================================
-   SPARK EFFECT
-========================================================= */
-
-.spark {
-    position: fixed;
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
-
-    background: #296840;
-
-    pointer-events: none;
-
-    animation: spark 600ms ease-out forwards;
-
-    mix-blend-mode: multiply;
-}
-
-@keyframes spark {
-
-    from {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-    }
-
-    to {
-        transform:
-            translate(var(--x), var(--y))
-            scale(0);
-
-        opacity: 0;
-    }
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-    margin-top: 10%;
-
-    display: flex;
-    flex-direction: row;
-
-    align-items: center;
-    justify-content: flex-end;
-
-    padding: 3% 2%;
-
-    background-color: #296840;
-    color: #f6efce;
-}
-
-footer img {
-    max-width: 55%;
-}
-
-footer a {
-    color: #f6efce;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #000;
-}
-
-footer #ocean {
-    mix-blend-mode: exclusion;
-}
-
-#socials {
-    display: flex;
-    flex-direction: column;
-
-    margin-left: 2%;
-}
-
-#socials img {
-    max-width: 15%;
-}
-
-.casestoodies {
-    display: flex;
-    flex-direction: column;
-}
-
-.csfeatures {
-    order: 0;
-
-    margin-top: 5%;
-    margin-left: 2%;
-    margin-right: 2%;
-    padding: 2%;
-
-    background-color: #f6efce;
-    border: 2px solid #296840;
-
-    display: flex;
-    align-items: center;
-    gap: 2%;
-}
-
-
-/* =========================================================
-   MOBILE
+   32. MOBILE — 700PX
 ========================================================= */
 
 @media (max-width: 700px) {
 
     /* -----------------------------------------------------
-       GENERAL
+       GLOBAL
     ----------------------------------------------------- */
 
     body {
         background-size: auto 100%;
-        background-attachment: fixed;
 
-        overflow-x: hidden;
+        background-attachment: fixed;
     }
 
 
     /* -----------------------------------------------------
-       HERO
+       NAV
     ----------------------------------------------------- */
 
     .hero {
         padding-top: 5%;
-        margin: 0;
     }
-
-    .hero > h1,
-    .hero > h2,
-    .hero > h3 {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-
-
-    /* -----------------------------------------------------
-       NAVBAR
-    ----------------------------------------------------- */
 
     .moving {
         width: 100%;
-
-        justify-content: flex-start;
-        align-items: flex-start;
     }
 
     .name-nav {
+        width: 100%;
+
         position: relative;
 
         display: flex;
         flex-wrap: wrap;
 
         align-items: center;
-
-        width: 100%;
-
-        margin: 0;
-        padding: 0;
     }
 
     #me {
-        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
 
-        padding: 3% 5%;
+        font-size: 0.85rem;
     }
 
     #nav-menu {
         width: 100%;
 
         margin-left: 0;
-        margin-top: 8px;
+        margin-top: 0.7rem;
 
         gap: 0.4rem;
 
         transform: translateY(-10px);
     }
 
-    #nav-menu.open {
-        transform: translateY(0);
-    }
-
     #nav-menu a {
-        font-size: 0.85rem;
-
         padding: 0.5rem 0.7rem;
+
+        font-size: 0.75rem;
     }
 
 
     /* -----------------------------------------------------
-       HERO TEXT
+       HOMEPAGE HERO
     ----------------------------------------------------- */
 
-    .hero h1 {
-        font-size: 2rem;
-
-        line-height: 1.1;
-
-        margin-top: 15%;
+    .home-hero {
+        padding-bottom: 12%;
     }
 
-    .hero h2 {
-        font-size: 1.2rem;
-
-        line-height: 1.4;
+    .home-intro {
+        margin: 20% 5% 0;
     }
 
-    .hero h3 {
-        font-size: 0.9rem;
+    .home-kicker h3 {
+        font-size: 0.75rem;
 
-        line-height: 1.4;
+        line-height: 1.5;
+    }
+
+    .home-intro h1 {
+        font-size: 3.4rem;
+
+        line-height: 0.95;
+    }
+
+    .home-intro h2 {
+        margin-top: 8%;
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+    }
+
+
+    /* -----------------------------------------------------
+       WORK HEADING
+    ----------------------------------------------------- */
+
+    .work-heading {
+        margin: 5%;
+
+        padding: 7%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 2rem;
+    }
+
+    .work-heading h2 {
+        font-size: 1.6rem;
+    }
+
+    .work-heading p {
+        font-size: 0.85rem;
     }
 
 
@@ -650,159 +1482,208 @@ footer #ocean {
     ----------------------------------------------------- */
 
     .filters {
-        margin: 8% 5% 5%;
+        margin: 7% 5% 5%;
 
         gap: 0.5rem;
-
-        flex-wrap: wrap;
     }
 
     .filter-btn {
-        font-size: 0.8rem;
-
         padding: 0.5rem 0.8rem;
+
+        font-size: 0.75rem;
     }
 
 
     /* -----------------------------------------------------
-       CASE STUDIES
+       PROJECT GRID
     ----------------------------------------------------- */
 
-    .csfeatures {
-        margin: 8% 5%;
+    .home-project-grid {
+        margin: 5%;
 
-        padding: 5%;
-
-        display: flex;
-        flex-direction: column;
-
-        align-items: stretch;
+        grid-template-columns: 1fr;
 
         gap: 5%;
     }
 
-    .csfeatures > .hd-carousel,
-    .csfeatures > .opex-carousel,
-    .csfeatures > img {
-        flex: none;
+    .project-card,
+    .featured-project {
+        grid-column: span 1;
 
-        width: 100%;
-        max-width: 100%;
+        display: flex;
 
-        min-width: 0;
+        flex-direction: column;
     }
 
-    .csfeatures img {
+    .project-image {
         width: 100%;
-        max-width: 100%;
 
-        padding: 0;
+        min-height: 0;
 
-        margin-bottom: 5%;
+        aspect-ratio: 1 / 1;
+    }
+
+    .project-info {
+        padding: 7%;
+    }
+
+    .project-info h4 {
+        font-size: 0.7rem;
+    }
+
+    .project-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-info p {
+        font-size: 0.9rem;
+    }
+
+    .project-info .cs-btn {
+        margin-top: 1.5rem;
     }
 
 
     /* -----------------------------------------------------
-       HACKDAVIS MOBILE CAROUSEL
+       HOME STATEMENT
     ----------------------------------------------------- */
 
-    .hd-carousel {
-        width: 100%;
+    .home-statement {
+        margin: 15% 5% 0;
 
-        padding: 0;
+        padding: 10%;
     }
 
-    .hd-slides {
-        width: 100%;
+    .home-statement h2 {
+        font-size: 2.2rem;
     }
 
-    .hd-slide {
-        width: 100%;
+    .home-statement p {
+        margin-top: 10%;
 
-        height: auto;
-
-        padding: 0 !important;
+        font-size: 0.9rem;
     }
 
 
     /* -----------------------------------------------------
-       OP:EX MOBILE CAROUSEL
+       ABOUT HERO
     ----------------------------------------------------- */
 
-    .opex-carousel {
-        width: 100%;
-
-        padding: 0;
+    .about-hero,
+    .play-hero {
+        padding-bottom: 12%;
     }
 
-    .opex-slides {
-        width: 100%;
+    .about-hero h1,
+    .play-hero h1 {
+        margin-top: 20%;
+        margin-left: 5%;
+
+        font-size: 3.5rem;
+
+        line-height: 0.95;
     }
 
-    .opex-slide {
-        width: 100%;
+    .about-hero h2,
+    .play-hero h2 {
+        margin-left: 5%;
+        margin-right: 5%;
 
-        height: auto;
-
-        padding: 0 !important;
-    }
-
-
-    /* -----------------------------------------------------
-       CAROUSEL DOTS
-    ----------------------------------------------------- */
-
-    .carousel-dots {
-        margin-top: 12px;
-
-        gap: 10px;
-    }
-
-    .carousel-dots button {
-        width: 12px;
-        height: 12px;
-    }
-
-
-    /* -----------------------------------------------------
-       DESCRIPTORS
-    ----------------------------------------------------- */
-
-    .descriptors {
-        width: 100%;
-
-        margin-top: 5%;
-    }
-
-    .descriptors h2 {
-        font-size: 1.3rem;
-
-        line-height: 1.3;
-    }
-
-    .descriptors h3 {
-        font-size: 0.95rem;
+        font-size: 1rem;
 
         line-height: 1.5;
     }
 
-    .descriptors h4 {
-        font-size: 0.75rem;
+
+    /* -----------------------------------------------------
+       ABOUT GRID
+    ----------------------------------------------------- */
+
+    .about-grid {
+        margin: 5%;
+
+        grid-template-columns: 1fr;
+
+        gap: 5%;
+    }
+
+    .about-card {
+        padding: 7%;
+    }
+
+    .about-intro {
+        min-height: 500px;
+    }
+
+    .about-intro h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-image {
+        min-height: 400px;
+
+        aspect-ratio: 1 / 1;
+    }
+
+    .about-philosophy {
+        min-height: 450px;
+    }
+
+    .about-philosophy h2 {
+        font-size: 1.7rem;
+    }
+
+    .about-contact {
+        grid-column: span 1;
+
+        padding: 8%;
+    }
+
+    .about-contact h2 {
+        font-size: 2rem;
+    }
+
+    .about-list {
+        margin-top: 15%;
+    }
+
+    .about-list p {
+        font-size: 0.85rem;
     }
 
 
     /* -----------------------------------------------------
-       CASE STUDY BUTTONS
+       PLAY GRID
     ----------------------------------------------------- */
 
-    .cs-btn {
-        display: block;
+    .play-grid {
+        margin: 5%;
 
-        margin-top: 8px;
+        grid-template-columns: 1fr;
 
-        font-size: 0.75rem;
+        gap: 5%;
+    }
 
-        padding: 0.6rem 0.8rem;
+    .play-item,
+    .play-item.tall,
+    .play-item.wide {
+        grid-column: span 1;
+
+        aspect-ratio: 1 / 1;
+    }
+
+
+    /* Mobile doesn't have hover,
+       so captions remain visible. */
+
+    .play-caption {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+    .play-item::after {
+        opacity: 0.15;
     }
 
 
@@ -818,45 +1699,1655 @@ footer #ocean {
         flex-direction: column;
 
         align-items: flex-start;
+
         justify-content: flex-start;
 
         gap: 2rem;
     }
 
-    footer img {
-        max-width: 100%;
-    }
-
-    footer #ocean {
+    footer > img {
         width: 100%;
+
         max-width: 100%;
     }
 
     #socials {
-        margin-left: 0;
-
         width: 100%;
-    }
 
-    #socials h3 {
-        font-size: 1rem;
+        min-width: 0;
+
+        margin-left: 0;
     }
 
     #socials img {
-        max-width: 25%;
+        max-width: 45px;
+        max-height: 45px;
     }
 
 
     /* -----------------------------------------------------
-       UNDER CONSTRUCTION PAGES
+       LEGACY CASE STUDIES
     ----------------------------------------------------- */
 
-    .hero > h2 {
-        margin-top: 20%;
+    .csfeatures {
+        margin: 8% 5%;
 
-        font-size: 1.4rem;
+        padding: 5%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 5%;
+    }
+
+    .csfeatures > img,
+    .csfeatures > .hd-carousel,
+    .csfeatures > .opex-carousel {
+        width: 100%;
+
+        max-width: 100%;
+
+        flex: none;
+    }
+
+    .csfeatures img {
+        width: 100%;
+
+        max-width: 100%;
+
+        padding: 0;
+
+        margin-bottom: 5%;
+    }
+
+    .descriptors {
+        width: 100%;
+
+        margin-top: 5%;
+    }
+
+    .descriptors h2 {
+        font-size: 1.3rem;
+
+        line-height: 1.3;
+    }
+
+    .descriptors h3 {
+        font-size: 0.9rem;
 
         line-height: 1.5;
     }
+
+    .descriptors h4 {
+        font-size: 0.7rem;
+    }
+
+    .cs-btn {
+        font-size: 0.7rem;
+    }
+
+}
+
+
+/* =========================================================
+   33. VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .home-intro h1 {
+        font-size: 2.8rem;
+    }
+
+    .about-hero h1,
+    .play-hero h1 {
+        font-size: 3rem;
+    }
+
+    .work-heading h2 {
+        font-size: 1.4rem;
+    }
+
+    .project-info h2 {
+        font-size: 1.35rem;
+    }
+
+    .home-statement h2 {
+        font-size: 1.9rem;
+    }
+
+}
+
+
+/* =========================================================
+   34. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+/* =========================================================
+   CASE STUDY SYSTEM
+========================================================= */
+
+
+/* =========================================================
+   01. CASE NAVIGATION
+========================================================= */
+
+.case-nav {
+    width: 100%;
+
+    padding-top: 2%;
+    padding-left: 2%;
+
+    position: relative;
+
+    z-index: 20;
+}
+
+.case-nav .name-nav {
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================================================
+   02. CASE HERO
+========================================================= */
+
+.case-hero {
+    margin: 8% 2% 0;
+}
+
+.case-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.5rem;
+
+    margin-bottom: 3%;
+}
+
+.case-hero-meta span {
+    padding: 0.45rem 0.7rem;
+
+    background: #f6efce;
+
+    color: #296840;
+
+    border: 2px solid #296840;
+
+    font-size: 0.7rem;
+}
+
+.case-hero h1 {
+    max-width: 1100px;
+
+    margin: 0;
+
+    font-size: clamp(4rem, 10vw, 10rem);
+
+    line-height: 0.85;
+
+    letter-spacing: -0.05em;
+}
+
+.case-hero h1 em {
+    color: #296840;
+}
+
+.case-hero-description {
+    max-width: 800px;
+
+    margin-top: 5%;
+
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   03. CASE DETAILS
+========================================================= */
+
+.case-hero-details {
+    margin-top: 7%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 1px;
+
+    background: #296840;
+
+    border: 2px solid #296840;
+}
+
+.case-hero-details > div {
+    min-width: 0;
+
+    padding: 1.5rem;
+
+    background: #f6efce;
+}
+
+.case-hero-details span {
+    display: block;
+
+    margin-bottom: 0.7rem;
+
+    color: #296840;
+
+    font-size: 0.7rem;
+}
+
+.case-hero-details strong {
+    display: block;
+
+    font-weight: normal;
+
+    font-size: 0.85rem;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   04. CASE HERO IMAGE
+========================================================= */
+
+.case-hero-image {
+    margin: 5% 2% 0;
+
+    overflow: hidden;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.case-hero-image img {
+    width: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+
+    mix-blend-mode: multiply;
+}
+
+
+/* =========================================================
+   05. GENERAL CASE SECTION
+========================================================= */
+
+.case-section {
+    margin: 10% 2% 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(180px, 0.35fr)
+        minmax(0, 1fr);
+
+    gap: 5%;
+}
+
+.case-section-label {
+    position: sticky;
+
+    top: 2rem;
+
+    align-self: start;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.4rem;
+}
+
+.case-section-label span {
+    font-size: 0.7rem;
+
+    color: #296840;
+}
+
+.case-section-label em {
+    font-size: 0.8rem;
+}
+
+.case-section-content {
+    min-width: 0;
+}
+
+.case-section-content > h2 {
+    max-width: 850px;
+
+    margin: 0;
+
+    font-size: clamp(2rem, 4vw, 4.5rem);
+
+    line-height: 1;
+
+    letter-spacing: -0.03em;
+}
+
+.case-section-content > p {
+    max-width: 700px;
+
+    margin-top: 5%;
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   06. CASE FULL-WIDTH IMAGE
+========================================================= */
+
+.case-full-image {
+    margin: 10% 2% 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.case-full-image img {
+    width: 100%;
+
+    max-width: none;
+
+    mix-blend-mode: multiply;
+}
+
+.case-full-image span {
+    position: absolute;
+
+    left: 2%;
+    bottom: 2%;
+
+    padding: 0.5rem 0.7rem;
+
+    background: #f6efce;
+
+    color: #296840;
+
+    border: 2px solid #296840;
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   07. TWO COLUMN CONTENT
+========================================================= */
+
+.case-two-column {
+    margin-top: 7%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 5%;
+}
+
+.case-two-column > div {
+    padding-top: 1rem;
+
+    border-top: 2px solid #296840;
+}
+
+.case-two-column h3 {
+    margin: 0 0 1rem;
+
+    font-size: 1rem;
+
+    color: #296840;
+}
+
+.case-two-column p {
+    margin: 0;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   08. PROCESS GRID
+========================================================= */
+
+.case-process-grid {
+    margin-top: 7%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 2%;
+}
+
+.case-process-grid article {
+    padding: 2rem;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.case-process-grid article > span {
+    color: #296840;
+
+    font-size: 0.7rem;
+}
+
+.case-process-grid h3 {
+    margin: 2rem 0 1rem;
+
+    font-size: 1.5rem;
+}
+
+.case-process-grid p {
+    margin: 0;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   09. SPLIT IMAGE / TEXT
+========================================================= */
+
+.case-split {
+    margin: 10% 2% 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(300px, 0.8fr);
+
+    min-height: 650px;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.case-split-image {
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+.case-split-image img {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+
+    mix-blend-mode: multiply;
+
+    transition: transform 0.5s ease;
+}
+
+.case-split:hover .case-split-image img {
+    transform: scale(1.025);
+}
+
+.case-split-text {
+    padding: 8%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.case-split-text > span {
+    margin-bottom: 2rem;
+
+    color: #296840;
+
+    font-size: 0.7rem;
+}
+
+.case-split-text h2 {
+    margin: 0;
+
+    font-size: clamp(2rem, 4vw, 4rem);
+
+    line-height: 1;
+}
+
+.case-split-text p {
+    max-width: 500px;
+
+    margin-top: 8%;
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   10. DESIGN SYSTEM
+========================================================= */
+
+.case-system-grid {
+    margin-top: 7%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 2%;
+}
+
+.system-card {
+    min-height: 200px;
+
+    padding: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.system-card > span {
+    color: #296840;
+
+    font-size: 0.7rem;
+}
+
+.system-card h3 {
+    margin: 0;
+
+    font-size: 1.3rem;
+}
+
+.color-row {
+    display: flex;
+
+    gap: 0.5rem;
+}
+
+.color-row i {
+    width: 40px;
+    height: 40px;
+
+    display: block;
+
+    background: #2C3D32;
+
+    border: 2px solid #2C3D32;
+}
+
+.color-row i:nth-child(2) {
+    background: #E0E4E7;
+}
+
+.color-row i:nth-child(3) {
+    background: #798772
+}
+
+
+/* =========================================================
+   11. FINAL DESIGN
+========================================================= */
+
+.case-final {
+    margin: 12% 2% 0;
+
+    padding: 5%;
+
+    background: #296840;
+
+    color: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.case-final-heading {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.3rem;
+}
+
+.case-final-heading span {
+    font-size: 0.7rem;
+}
+
+.case-final-heading em {
+    color: #f6efce;
+
+    font-size: 0.8rem;
+}
+
+.case-final > h2 {
+    max-width: 900px;
+
+    margin: 8% 0 0;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.04em;
+}
+
+.case-final > p {
+    max-width: 650px;
+
+    margin-top: 5%;
+
+    line-height: 1.6;
+}
+
+.case-final > img {
+    width: 100%;
+
+    margin-top: 7%;
+
+    border: 2px solid #f6efce;
+}
+
+
+/* =========================================================
+   12. OUTCOME
+========================================================= */
+
+.case-outcome {
+    margin-bottom: 10%;
+}
+
+.case-results {
+    margin-top: 7%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 2%;
+}
+
+.case-results > div {
+    padding: 2rem;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.case-results strong {
+    display: block;
+
+    color: #296840;
+
+    font-size: clamp(2.5rem, 5vw, 5rem);
+
+    line-height: 1;
+}
+
+.case-results span {
+    display: block;
+
+    margin-top: 1rem;
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   13. REFLECTION
+========================================================= */
+
+.case-reflection {
+    margin: 10% 2%;
+
+    padding: 8%;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+
+    text-align: center;
+}
+
+.case-reflection > em {
+    font-size: 0.8rem;
+}
+
+.case-reflection h2 {
+    max-width: 900px;
+
+    margin: 5% auto 0;
+
+    font-size: clamp(2rem, 5vw, 5rem);
+
+    line-height: 1;
+}
+
+.case-reflection p {
+    max-width: 600px;
+
+    margin: 5% auto 0;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   14. NEXT PROJECT
+========================================================= */
+
+.case-next {
+    margin: 0 2% 10%;
+
+    padding: 5%;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+.case-next > span {
+    color: #296840;
+
+    font-size: 0.7rem;
+}
+
+.case-next a {
+    display: block;
+
+    color: #000;
+
+    text-decoration: none;
+}
+
+.case-next h2 {
+    margin: 5% 0 0;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    line-height: 0.9;
+
+    transition: color 0.2s ease;
+}
+
+.case-next a:hover h2 {
+    color: #296840;
+}
+
+.case-next a:hover em {
+    color: #000;
+}
+
+
+/* =========================================================
+   15. CASE STUDY MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .case-nav {
+        padding-top: 5%;
+        padding-left: 5%;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+    ----------------------------------------------------- */
+
+    .case-hero {
+        margin: 20% 5% 0;
+    }
+
+    .case-hero h1 {
+        font-size: 3.5rem;
+
+        line-height: 0.9;
+    }
+
+    .case-hero-description {
+        margin-top: 10%;
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+    }
+
+
+    /* -----------------------------------------------------
+       META
+    ----------------------------------------------------- */
+
+    .case-hero-meta {
+        margin-bottom: 8%;
+    }
+
+    .case-hero-meta span {
+        font-size: 0.65rem;
+    }
+
+
+    /* -----------------------------------------------------
+       DETAILS
+    ----------------------------------------------------- */
+
+    .case-hero-details {
+        margin-top: 12%;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .case-hero-details > div {
+        padding: 1rem;
+    }
+
+    .case-hero-details strong {
+        font-size: 0.75rem;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO IMAGE
+    ----------------------------------------------------- */
+
+    .case-hero-image {
+        margin: 10% 5% 0;
+    }
+
+
+    /* -----------------------------------------------------
+       GENERAL SECTION
+    ----------------------------------------------------- */
+
+    .case-section {
+        margin: 20% 5% 0;
+
+        display: block;
+    }
+
+    .case-section-label {
+        position: static;
+
+        margin-bottom: 10%;
+    }
+
+    .case-section-content > h2 {
+        font-size: 2rem;
+
+        line-height: 1.05;
+    }
+
+    .case-section-content > p {
+        margin-top: 8%;
+
+        font-size: 0.9rem;
+    }
+
+
+    /* -----------------------------------------------------
+       FULL IMAGE
+    ----------------------------------------------------- */
+
+    .case-full-image {
+        margin: 20% 5% 0;
+    }
+
+    .case-full-image span {
+        font-size: 0.6rem;
+    }
+
+
+    /* -----------------------------------------------------
+       TWO COLUMN
+    ----------------------------------------------------- */
+
+    .case-two-column {
+        grid-template-columns: 1fr;
+
+        gap: 2rem;
+
+        margin-top: 12%;
+    }
+
+
+    /* -----------------------------------------------------
+       PROCESS
+    ----------------------------------------------------- */
+
+    .case-process-grid {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+
+        margin-top: 12%;
+    }
+
+    .case-process-grid article {
+        padding: 1.5rem;
+    }
+
+
+    /* -----------------------------------------------------
+       SPLIT
+    ----------------------------------------------------- */
+
+    .case-split {
+        margin: 20% 5% 0;
+
+        grid-template-columns: 1fr;
+
+        min-height: 0;
+    }
+
+    .case-split-image {
+        aspect-ratio: 1 / 1;
+    }
+
+    .case-split-text {
+        min-height: 400px;
+
+        padding: 10%;
+    }
+
+    .case-split-text h2 {
+        font-size: 2rem;
+    }
+
+
+    /* -----------------------------------------------------
+       DESIGN SYSTEM
+    ----------------------------------------------------- */
+
+    .case-system-grid {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+
+        margin-top: 12%;
+    }
+
+    .system-card {
+        min-height: 150px;
+    }
+
+
+    /* -----------------------------------------------------
+       FINAL
+    ----------------------------------------------------- */
+
+    .case-final {
+        margin: 20% 5% 0;
+
+        padding: 10%;
+    }
+
+    .case-final > h2 {
+        margin-top: 20%;
+
+        font-size: 3rem;
+    }
+
+    .case-final > p {
+        margin-top: 10%;
+
+        font-size: 0.9rem;
+    }
+
+    .case-final > img {
+        margin-top: 12%;
+    }
+
+
+    /* -----------------------------------------------------
+       OUTCOME
+    ----------------------------------------------------- */
+
+    .case-outcome {
+        margin-bottom: 20%;
+    }
+
+    .case-results {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+
+        margin-top: 12%;
+    }
+
+
+    /* -----------------------------------------------------
+       REFLECTION
+    ----------------------------------------------------- */
+
+    .case-reflection {
+        margin: 20% 5%;
+
+        padding: 12% 8%;
+    }
+
+    .case-reflection h2 {
+        margin-top: 12%;
+
+        font-size: 2.2rem;
+    }
+
+    .case-reflection p {
+        margin-top: 12%;
+    }
+
+
+    /* -----------------------------------------------------
+       NEXT PROJECT
+    ----------------------------------------------------- */
+
+    .case-next {
+        margin: 0 5% 20%;
+
+        padding: 10%;
+    }
+
+    .case-next h2 {
+        margin-top: 15%;
+
+        font-size: 3.5rem;
+    }
+
+}
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.about-page {
+    width: 100%;
+}
+
+
+/* =========================================================
+   ABOUT HEADER
+========================================================= */
+
+.about-header {
+    padding: 7% 5% 6%;
+}
+
+.page-eyebrow {
+    margin: 0 0 1rem;
+
+    color: #296840;
+
+    font-size: 0.9rem;
+}
+
+.page-title {
+    margin: 0;
+
+    font-size: clamp(
+        5rem,
+        15vw,
+        14rem
+    );
+
+    font-weight: normal;
+
+    line-height: 0.8;
+
+    letter-spacing: -0.06em;
+}
+
+
+/* =========================================================
+   ABOUT INTRO
+========================================================= */
+
+.about-intro {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 5%;
+
+    margin: 0 5%;
+
+    padding: 4%;
+
+    background: #f6efce;
+
+    border: 2px solid #296840;
+}
+
+
+/* IMAGE */
+
+.about-image {
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+
+    height: auto;
+
+    mix-blend-mode: multiply;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
+
+
+/* COPY */
+
+.about-copy {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.about-copy h2 {
+    margin-top: 0;
+
+    font-size: clamp(
+        1.8rem,
+        4vw,
+        3rem
+    );
+
+    line-height: 1.1;
+}
+
+.about-copy p {
+    max-width: 650px;
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.about-section {
+    margin: 12% 5% 0;
+}
+
+.section-label {
+    color: #296840;
+
+    margin-bottom: 3%;
+}
+
+
+/* =========================================================
+   ABOUT LIST
+========================================================= */
+
+.about-list {
+    border-top: 2px solid #296840;
+}
+
+.about-list-item {
+    display: grid;
+
+    grid-template-columns:
+        10%
+        1fr;
+
+    align-items: center;
+
+    padding: 2% 0;
+
+    border-bottom: 2px solid #296840;
+
+    transition:
+        background 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.about-list-item:hover {
+    background: #f6efce;
+
+    padding-left: 1%;
+}
+
+.about-list-item span {
+    color: #296840;
+}
+
+.about-list-item h2 {
+    margin: 0;
+
+    font-size: clamp(
+        1.8rem,
+        4vw,
+        4rem
+    );
+
+    font-weight: normal;
+
+    text-transform: lowercase;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.about-contact {
+    margin: 15% 5%;
+
+    padding: 5%;
+
+    background: #296840;
+
+    color: #f6efce;
+
+    text-align: center;
+}
+
+.about-contact p {
+    margin: 0 0 1rem;
+}
+
+.about-contact h2 {
+    margin: 0;
+
+    font-size: clamp(
+        2.5rem,
+        7vw,
+        7rem
+    );
+
+    font-weight: normal;
+}
+
+.about-contact em {
+    color: #f6efce;
+}
+/* =========================================================
+   JAVASCRIPT INTERACTIONS
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   IMAGE LIGHTBOX
+--------------------------------------------------------- */
+
+.image-lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 5%;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.image-lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border: 2px solid #f6efce;
+}
+
+.lightbox-close {
+    position: absolute;
+
+    top: 2rem;
+    right: 2rem;
+
+    width: 45px;
+    height: 45px;
+
+    background: #f6efce;
+
+    color: #296840;
+
+    border: 2px solid #296840;
+
+    font-size: 1.5rem;
+}
+
+.lightbox-close:hover {
+    background: #296840;
+    color: #f6efce;
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   PLAY PAGE
+--------------------------------------------------------- */
+
+.play-item {
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.play-caption {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 1rem;
+
+    background: #296840;
+
+    color: #f6efce;
+
+    transform: translateY(100%);
+
+    transition:
+        transform 0.25s ease;
+}
+
+.play-item:hover .play-caption,
+.play-item.hovered .play-caption {
+    transform: translateY(0);
+}
+
+.play-caption span {
+    color: #f6efce;
+
+    font-size: 0.7rem;
+}
+
+.play-caption p {
+    margin: 0.4rem 0 0;
+
+    font-size: 0.8rem;
+
+    line-height: 1.4;
+}
+
+
+/* ---------------------------------------------------------
+   PLAY TILT
+--------------------------------------------------------- */
+
+[data-tilt] {
+    transition:
+        transform 0.15s ease-out;
+}
+
+
+/* ---------------------------------------------------------
+   SCROLL REVEAL
+--------------------------------------------------------- */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+--------------------------------------------------------- */
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE LIGHTBOX
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .image-lightbox {
+        padding: 5%;
+    }
+
+    .lightbox-content {
+        max-width: 100%;
+        max-height: 80vh;
+    }
+
+    .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+
+        width: 40px;
+        height: 40px;
+    }
+
+}
+/* =========================================================
+   PROJECT FILTER
+========================================================= */
+
+.project-card.filter-hidden {
+    display: none !important;
+}
+
+/* =========================================================
+   TYPEWRITER
+========================================================= */
+
+.typewriter-char {
+    opacity: 0;
+
+    transition:
+        opacity 0.05s ease;
+}
+
+@media (max-width: 700px) {
+
+    /* =====================================================
+       MOBILE NAV
+    ===================================================== */
+
+    .site-nav {
+        width: 90%;
+        margin: 5%;
+
+        flex-direction: column;
+    }
+
+
+    .site-name {
+        justify-content: center;
+
+        width: 100%;
+
+        padding: 0.8rem;
+    }
+
+
+    .site-links {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        margin-left: 0;
+    }
+
+
+    .nav-link {
+        justify-content: center;
+
+        padding: 0.7rem 0.4rem;
+
+        border-left: none;
+        border-top: 2px solid #296840;
+    }
+
+
+    .nav-link + .nav-link {
+        border-left: 2px solid #296840;
+
+    }
+
+    /* =====================================================
+   ABOUT MOBILE
+===================================================== */
+
+.about-header {
+    padding: 18% 5% 12%;
+}
+
+.page-title {
+    font-size: 25vw;
+}
+
+
+.about-intro {
+    display: flex;
+
+    flex-direction: column;
+
+    margin: 0 5%;
+
+    padding: 5%;
+
+    gap: 8%;
+}
+
+
+.about-copy h2 {
+    font-size: 1.8rem;
+}
+
+
+.about-copy p {
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+}
+
+
+.about-section {
+    margin-top: 20%;
+}
+
+
+.about-list-item {
+    grid-template-columns:
+        15%
+        1fr;
+
+    padding: 5% 0;
+}
+
+
+.about-list-item h2 {
+    font-size: 1.6rem;
+}
+
+
+.about-contact {
+    margin: 25% 5%;
+
+    padding: 12% 5%;
+}
 
 }

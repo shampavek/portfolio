@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,67 +9,284 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap"
+        rel="stylesheet"
+    >
 
     <script src="script.js" defer></script>
-
     <link rel="icon" href="imgs/favicon.png">
 
-    <title>shampave's portfolio</title>
+    <title>shampave's portfolio — about</title>
 </head>
 
 <body>
 
-    <div class="hero">
+    <header class="site-nav">
 
-        <div class="moving">
+        <a href="index.html" class="site-name">
+            shampave kandiah
+        </a>
 
-            <div class="name-nav">
+        <nav class="site-links" aria-label="Main navigation">
 
-                <button id="me">shampave kandiah</button>
+            <a href="index.html" class="nav-link">
+                work
+            </a>
 
-                <nav id="nav-menu">
-                    <a href="index.html">work</a>
-                    <a href="about.html">about</a>
-                    <a href="play.html">play</a>
-                </nav>
+            <a href="play.html" class="nav-link">
+                play
+            </a>
 
-            </div>
+            <a href="about.html" class="nav-link active">
+                about
+            </a>
 
-        </div>
+        </nav>
 
-        <h2>page under construction! will be available soon =D</h2>
+    </header>
+
+
+    <div class="hero about-hero">
+
+        <h1 class="typewriter-heading">
+            about <em>↘</em>
+        </h1>
+
+        <h2>
+            I'm a <em>visual + product designer</em> interested in
+            building thoughtful, accessible, and interactive experiences.
+        </h2>
 
     </div>
 
+
+
+     <!-- =================================================
+             INTRO
+        ================================================== -->
+
+        <section class="about-intro">
+
+            <div class="about-image">
+
+                <img
+                    src="imgs/me.jpg"
+                    alt="Portrait of Shampave"
+                >
+
+                <div class="image-label">
+                    <span>currently</span>
+                    <em>based in Sacramento, CA</em>
+                </div>
+
+            </div>
+
+
+            <div class="about-copy">
+
+                <p class="page-eyebrow">
+                    <em>hello, i'm shampave!</em>
+                </p>
+
+                <h2>
+                    I like making things that are
+                    <em>useful, weird, and easy to understand.</em>
+                </h2>
+
+                <p>
+                    I recently graduated from UC Davis (go aggies!). Much of my work is across
+                    across visual design, product design, branding, and
+                    interactive experiences.
+                </p>
+
+                <p>
+                    My work usually starts somewhere between a messy sketch,
+                    an overly specific idea, and a question about how
+                    something could work better.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WHAT I DO
+        ================================================== -->
+
+        <section class="about-section">
+
+            <p class="section-label">
+                <em>02 — what i do</em>
+            </p>
+
+            <div class="about-list">
+
+                <div class="about-list-item">
+                    <span>01</span>
+                    <h2>visual design</h2>
+                </div>
+
+                <div class="about-list-item">
+                    <span>02</span>
+                    <h2>product design</h2>
+                </div>
+
+                <div class="about-list-item">
+                    <span>03</span>
+                    <h2>design systems</h2>
+                </div>
+
+                <div class="about-list-item">
+                    <span>04</span>
+                    <h2>prototyping</h2>
+                </div>
+
+                <div class="about-list-item">
+                    <span>05</span>
+                    <h2>brand identity</h2>
+                </div>
+
+                <div class="about-list-item">
+                    <span>06</span>
+                    <h2>interactive experiences</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DESIGN PHILOSOPHY
+        ================================================== -->
+
+        <section class="about-section">
+
+            <p class="section-label">
+                <em>03 — my approach</em>
+            </p>
+
+            <div class="about-card about-philosophy">
+
+                <h2>
+                    design should make people feel
+                    <em>included, curious, and capable.</em>
+                </h2>
+
+                <p>
+                    I'm especially interested in the space where visual
+                    language and product experience overlap — where a good
+                    interface can communicate something before you even
+                    read the words.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PERSONAL DETAILS
+        ================================================== -->
+
+        <section class="about-section">
+
+            <p class="section-label">
+                <em>04 — a few things about me</em>
+            </p>
+
+            <div class="about-card about-fun">
+
+                <ul>
+
+                    <li>
+                        big letterboxd girl 
+                    </li>
+
+                    <li>
+                        will start reading a wikipedia article as soon as you tell me something i don't know
+                    </li>
+
+                    <li>
+                        i love cars & car shows
+                    </li>
+
+                    <li>
+                        unlike what this website suggests, green is not my favorite color
+                    </li>
+
+                    <li>
+                        one of the apps with the highest screen usage on my phone is beli (yes, the food ranking app)
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
     <footer>
 
-        <img id="ocean" src="imgs/ocean.gif">
+        <img
+            id="ocean"
+            src="imgs/ocean.gif"
+            alt=""
+            aria-hidden="true"
+        >
 
         <div id="socials">
+            <h4>currently open for new opportunities!</h4>
+            <h3>
+                let's work together.
+            </h3>
 
-            <h3>let's work together.</h3>
-
+            <!-- Email obfuscation -->
             <script>
                 ML="p=lfr vgh@.s:tni/o>mk\"dcea<";
                 MI="JI584H31ECI?2=A<;8IC0I6HDI>F?I897CI?2:GACEB;8IC0I6HDI>F?I897CI?2:GACJ@IB";
                 OT="";
 
-                for(j=0;j<MI.length;j++){
-                    OT+=ML.charAt(MI.charCodeAt(j)-48);
+                for (j = 0; j < MI.length; j++) {
+                    OT += ML.charAt(MI.charCodeAt(j) - 48);
                 }
 
                 document.write(OT);
             </script>
 
+
             <div id="socialimg">
 
-                <a href="https://www.linkedin.com/in/shampave/" target="_blank">
-                    <img src="imgs/linkin.png">
+                <a
+                    href="https://www.linkedin.com/in/shampave/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                >
+                    <img
+                        src="imgs/linkin.png"
+                        alt="LinkedIn"
+                    >
                 </a>
 
-                <a href="https://drive.google.com/file/d/16YkKdqTRBL_-7MpqAGXAC9O9tFXqgc6l/view" target="_blank">
-                    <img src="imgs/resume.png">
+                <a
+                    href="https://drive.google.com/file/d/1fd4GkLnt2PUYiBl-b4LIDZ6Hkwwsx2qo/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Resume"
+                >
+                    <img
+                        src="imgs/resume.png"
+                        alt="Resume"
+                    >
                 </a>
 
             </div>

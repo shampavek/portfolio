@@ -9,145 +9,443 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
-    
 
     <script src="script.js" defer></script>
-     <link rel="icon" href="imgs/favicon.png">
+    <link rel="icon" href="imgs/favicon.png">
+
     <title>shampave's portfolio</title>
 </head>
-<body>
-    <div class="hero">
-        <div class="moving">
-<div class="name-nav">
-    <button id="me">shampave kandiah</button>
 
-    <nav id="nav-menu">
-        <a href="index.html">work</a>
-        <a href="about.html">about</a>
-        <a href="play.html">play</a>
+<body>
+<header class="site-nav">
+
+    <a
+        href="index.html"
+        class="site-name"
+    >
+        shampave kandiah
+    </a>
+
+
+    <nav class="site-links" aria-label="Main navigation">
+
+        <a
+            href="index.html"
+            class="nav-link"
+        >
+            work
+        </a>
+
+        <a
+            href="play.html"
+            class="nav-link"
+        >
+            play
+        </a>
+
+        <a
+            href="about.html"
+            class="nav-link"
+        >
+            about
+        </a>
+
     </nav>
-</div>
+
+
+
+</header>
+        <div class="home-intro">
+
+            <div class="home-kicker">
+                <h3>
+                    UC Davis New Grad •
+                    <em>seeking early career roles in tech, retail, and entertainment</em>
+                </h3>
+            </div>
+            <h1 class="typewriter-heading">
+                Design for <em>inclusivity.</em>
+            </h1>
+
+            <h2>
+                I'm a <em>Visual + Product designer</em> with an eye for
+                <em>design systems</em> and <em>prototyping accessible
+                and interactive platforms.</em>
+            </h2>
 
         </div>
-        <h3>Design @ UC Davis • <em>Seeking early career roles in tech, retail, and entertainment</em></h3>
-        <h1>Design for <em>inclusivity.</em></h1>
-        <h2>I’m a <em>Visual + Product designer</em> with an eye for <em>design systems</em> and <em>prototyping accessible and interactive platforms.</em></h2>
-        <h3>see featured works ↘︎</h3>
+
     </div>
+
+
+    <!-- =====================================================
+         WORK INTRO
+    ====================================================== -->
+
+    <section class="work-heading">
+
+        <div>
+            <h4><em>selected work ↘</em></h4>
+
+            <h2>
+                A few things I've
+                <em>designed, built, and shipped.</em>
+            </h2>
+        </div>
+
+        <p>
+            A mix of product, visual, branding, and interactive work.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         FILTERS
+    ====================================================== -->
+
     <div class="filters">
 
-        <button class="filter-btn active" data-filter="all">all</button>
-        <button class="filter-btn" data-filter="visual">visual</button>
-        <button class="filter-btn" data-filter="product">product</button>
-
-    </div>
-    <div class="casestoodies"> 
-        <div class="csfeatures" data-category="product">
-            <img class="ip" src="imgs/ipdemo.gif">
-            <div class="descriptors">
-                <h4><em>0 -> 1 • client work • shipped</em></h4>
-                <h2>Integrative Privacy <button class="cs-btn" onclick="location.href='ip.html'">view case study -></button></h2>
-                <h3>Company site for leading privacy firm. Contributed to <em>7 client conversions</em></h3>
-        </div> 
-    </div>
-    <div class="csfeatures" data-category="visual">
-        <img class="map" src="imgs/map.gif">
-            <div class="descriptors">
-                <h4><em> 1 -> 2 • client work • installed</em></h4>
-                <h2>Campus Gardens Map <button class="cs-btn" onclick="location.href='map.html'">view case study -></button></h2>
-                <h3>Designed a wayfinding system encompassing <em>multiacreage plot spaces, accessibility spaces, and local amenities.</em></h3>
-        </div>       
-    </div>
-<div class="csfeatures" data-category="visual product">
-
-<div class="hd-carousel">
-
-    <div class="hd-slides">
-        <img src="imgs/directorshirt.jpg" class="hd-slide active">
-        <img src="imgs/hackershirt.jpg" class="hd-slide">
-    </div>
-
-    <div class="carousel-dots">
-        <button class="hd-dot active" data-slide="0"></button>
-        <button class="hd-dot" data-slide="1"></button>
-    </div>
-
-</div>
-
-<div class="descriptors">
-    <h4><em>0 -> 1 • brand identity • shipped</em></h4>
-
-    <h2>
-        HackDavis
-        <button class="cs-btn">
-        <!-- <button class="cs-btn" onclick="window.location.href=''"> add repo link -->
-            view case study
+        <button class="filter-btn active" data-filter="all">
+            all
         </button>
-    </h2>
 
-    <h3>
-       Designed the brand identity for one of California's largest student-run collegiate hackathons. I designed a sponsorship deck featuring apparel assets that led to <em>$15,000 in funding.</em>
-    </h3>
-</div>
+        <button class="filter-btn" data-filter="visual">
+            visual
+        </button>
 
-</div>
+        <button class="filter-btn" data-filter="product">
+            product
+        </button>
 
-<div class="csfeatures" data-category="visual product">
-
-<div class="opex-carousel">
-
-    <div class="opex-slides">
-        <img src="imgs/opex.gif" class="opex-slide active">
-        <img src="imgs/op-ex-pres.JPG" class="opex-slide">
-        <img src="imgs/op-ex-awards.jpg" class="opex-slide">
     </div>
 
-    <div class="carousel-dots">
-        <button class="opex-dot active" data-slide="0"></button>
-        <button class="opex-dot" data-slide="1"></button>
-        <button class="opex-dot" data-slide="2"></button>
-    </div>
 
-</div>
+    <!-- =====================================================
+         PROJECT GRID
+    ====================================================== -->
 
-<div class="descriptors">
-    <h4><em>0 -> 1 • hackathon • 1st place</em></h4>
+    <main class="home-project-grid">
 
-    <h2>
-        OP: EX
-<button
-    class="cs-btn"
-    onclick="window.open('https://davisdesigninteractive.notion.site/OP-EX-30fcae906ab18085a91bf84d7b9c9de2', '_blank')"
->
-    view deck ->
-</button>
-    </h2>
 
-    <h3>
-        Designed a spy game simulator game for early adolescents to <em>get them off their phones.</em> Presented to industry judges from ServiceNow and Netflix. Won Best Overall Design.
-    </h3>
-</div>
+        <!-- INTEGRATIVE PRIVACY -->
 
-</div>
-    </div>
+        <article class="project-card featured-project"
+                 data-category="product">
 
+            <div class="project-image">
+
+                <img
+                    class="ip"
+                    src="imgs/ip.gif"
+                    alt="Integrative Privacy website prototype"
+                >
+
+                <span class="project-number">
+                    01
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <h4>
+                    <em>0 → 1 • client work • shipped</em>
+                </h4>
+
+                <h2>
+                    Integrative Privacy
+                </h2>
+
+                <p>
+                    Company site for a leading privacy firm.
+                    Contributed to <em>7 client conversions.</em>
+                </p>
+
+                <button
+                    class="cs-btn"
+                    onclick="location.href='ip.html'"
+                >
+                    view case study →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- CAMPUS GARDENS -->
+
+        <article class="project-card"
+                 data-category="visual">
+
+            <div class="project-image">
+
+                <img
+                    class="map"
+                    src="imgs/map.gif"
+                    alt="Campus Gardens map"
+                >
+
+                <span class="project-number">
+                    02
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <h4>
+                    <em>1 → 2 • client work • installed</em>
+                </h4>
+
+                <h2>
+                    Campus Gardens Map
+                </h2>
+
+                <p>
+                    Designed a wayfinding system encompassing
+                    multi-acreage plot spaces, accessibility spaces,
+                    and local amenities.
+                </p>
+
+                <button
+                    class="cs-btn"
+                    onclick="location.href='map.html'"
+                >
+                    view case study →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- HACKDAVIS -->
+
+        <article class="project-card"
+                 data-category="visual product">
+
+            <div class="project-image carousel-project">
+
+                <div class="hd-slides">
+
+                    <img
+                        src="imgs/directorshirt.jpg"
+                        class="hd-slide active"
+                        alt="HackDavis director shirt"
+                    >
+
+                    <img
+                        src="imgs/hackershirt.jpg"
+                        class="hd-slide"
+                        alt="HackDavis hacker shirt"
+                    >
+
+                </div>
+
+                <div class="carousel-dots">
+
+                    <button
+                        class="hd-dot active"
+                        data-slide="0">
+                    </button>
+
+                    <button
+                        class="hd-dot"
+                        data-slide="1">
+                    </button>
+
+                </div>
+
+                <span class="project-number">
+                    03
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <h4>
+                    <em>0 → 1 • brand identity • shipped</em>
+                </h4>
+
+                <h2>
+                    HackDavis
+                </h2>
+
+                <p>
+                    Designed the brand identity for one of California's
+                    largest student-run collegiate hackathons. Created
+                    a sponsorship deck featuring apparel assets that
+                    led to <em>$15,000 in funding.</em>
+                </p>
+
+                <button
+                    class="cs-btn"
+                    onclick="location.href='hackdavis.html'"
+                >
+                    view case study →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- OP:EX -->
+
+        <article class="project-card"
+                 data-category="visual product">
+
+            <div class="project-image carousel-project">
+
+                <div class="opex-slides">
+
+                    <img
+                        src="imgs/opex.gif"
+                        class="opex-slide active"
+                        alt="OP:EX game prototype"
+                    >
+
+                    <img
+                        src="imgs/op-ex-pres.JPG"
+                        class="opex-slide"
+                        alt="OP:EX presentation"
+                    >
+
+                    <img
+                        src="imgs/op-ex-awards.jpg"
+                        class="opex-slide"
+                        alt="OP:EX award"
+                    >
+
+                </div>
+
+                <div class="carousel-dots">
+
+                    <button
+                        class="opex-dot active"
+                        data-slide="0">
+                    </button>
+
+                    <button
+                        class="opex-dot"
+                        data-slide="1">
+                    </button>
+
+                    <button
+                        class="opex-dot"
+                        data-slide="2">
+                    </button>
+
+                </div>
+
+                <span class="project-number">
+                    04
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <h4>
+                    <em>0 → 1 • hackathon • 1st place</em>
+                </h4>
+
+                <h2>
+                    OP: EX
+                </h2>
+
+                <p>
+                    Designed a spy game simulator for early adolescents
+                    to <em>get them off their phones.</em> Presented to
+                    industry judges from ServiceNow and Netflix.
+                    Won Best Overall Design.
+                </p>
+
+                <button
+                    class="cs-btn"
+                    onclick="window.open(
+                        'https://davisdesigninteractive.notion.site/OP-EX-30fcae906ab18085a91bf84d7b9c9de2',
+                        '_blank'
+                    )"
+                >
+                    view repo →
+                </button>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <!-- =====================================================
+         BOTTOM STATEMENT
+    ====================================================== -->
+
+    <section class="home-statement">
+
+        <h2>
+            Interested in making something
+            <em>thoughtful?</em>
+        </h2>
+
+        <p>
+            I'm currently looking for early-career opportunities
+            in tech, retail, and entertainment.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <img id="ocean" src="imgs/ocean.gif">
+
+        <div id="socials">
+
+            <h3>let's work together.</h3>
+
+            <script>
+                ML="p=lfr vgh@.s:tni/o>mk\"dcea<";
+                MI="JI584H31ECI?2=A<;8IC0I6HDI>F?I897CI?2:GACEB;8IC0I6HDI>F?I897CI?2:GACJ@IB";
+                OT="";
+
+                for(j=0;j<MI.length;j++){
+                    OT+=ML.charAt(MI.charCodeAt(j)-48);
+                }
+
+                document.write(OT);
+            </script>
+
+            <div id="socialimg">
+
+                <a
+                    href="https://www.linkedin.com/in/shampave/"
+                    target="_blank"
+                >
+                    <img src="imgs/linkin.png">
+                </a>
+
+                <a
+                    href="https://drive.google.com/file/d/1fd4GkLnt2PUYiBl-b4LIDZ6Hkwwsx2qo/view?usp=sharing"
+                    target="_blank"
+                >
+                    <img src="imgs/resume.png">
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
 
 </body>
-
-<footer>
-    <img id="ocean" src="imgs/ocean.gif">
-    <div id="socials">
-        <h3>let's work together.</h3>
-         <script>ML="p=lfr vgh@.s:tni/o>mk\"dcea<";
-    MI="JI584H31ECI?2=A<;8IC0I6HDI>F?I897CI?2:GACEB;8IC0I6HDI>F?I897CI?2:GACJ@IB";
-    OT="";for(j=0;j<MI.length;j++){
-    OT+=ML.charAt(MI.charCodeAt(j)-48);
-    }document.write(OT);</script>
-    <div id="socialimg"><a href="https://www.linkedin.com/in/shampave/" target="_blank"><img src="imgs/linkin.png"></a>
-    <a href="https://drive.google.com/file/d/16YkKdqTRBL_-7MpqAGXAC9O9tFXqgc6l/view" target="_blank"><img src="imgs/resume.png"></a></div>
-    </div>
-   
-    
-</footer>
 
 </html>
