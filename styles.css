@@ -3349,3 +3349,37 @@ body.lightbox-open {
 }
 
 }
+
+@media (max-width: 700px) {
+    .home-project-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 5%;
+    }
+
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 0;
+    }
+
+    .project-image {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 1 / 1;
+    }
+
+    .project-info {
+        height: auto;
+        min-height: 0;
+    }
+
+    footer {
+        position: relative;
+        clear: both;
+        margin-top: 6rem;
+    }
+}

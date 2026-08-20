@@ -1322,3 +1322,4 @@ if (prefersReducedMotion) {
 console.log(
     "shampave portfolio loaded ✦"
 );
+
