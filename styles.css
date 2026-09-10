@@ -2311,17 +2311,54 @@ a:focus-visible {
 
     display: block;
 
-    background: #2C3D32;
+    background: #F7F1CD;
 
-    border: 2px solid #2C3D32;
+    border: 1px solid #2C3D32;
+}
+.color-rowz i{
+    width: 40px;
+    height: 40px;
+
+    display: block;
+
+    background: #Ffff;
+
+    border: 1px solid #2C3D32;
 }
 
-.color-row i:nth-child(2) {
+.color-rowz i:nth-child(2){
+    background: #2D3D32;
+}
+
+
+.color-rowz i:nth-child(3){
     background: #E0E4E7;
 }
 
+
+.color-row i:nth-child(2) {
+    background: #F5DD4A;
+}
+
 .color-row i:nth-child(3) {
-    background: #798772
+    background: #E1903E
+}
+
+.color-row i:nth-child(4) {
+    background: #E3868C
+}
+.color-row i:nth-child(5) {
+    background: #B42E7D 
+}
+.color-row i:nth-child(6) {
+    background: #3F91A9
+}
+.color-row i:nth-child(7) {
+    background: #20534D
+}
+
+.color-row i:nth-child(8){
+    background-color: #845736;
 }
 
 
@@ -3382,4 +3419,238 @@ body.lightbox-open {
         clear: both;
         margin-top: 6rem;
     }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    /* ---------- GLOBAL ---------- */
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .site-nav {
+        padding: 1rem;
+    }
+
+    .site-links {
+        gap: 1rem;
+    }
+
+
+    /* ---------- CASE HERO ---------- */
+
+    .case-hero {
+        padding: 5rem 1rem 3rem;
+    }
+
+    .case-hero h1 {
+        font-size: clamp(3rem, 14vw, 5rem);
+        line-height: 0.9;
+        max-width: 100%;
+    }
+
+    .case-hero-meta {
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+    }
+
+    .case-hero-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 1rem;
+        margin-top: 3rem;
+    }
+
+    .case-hero-details div {
+        min-width: 0;
+    }
+
+
+    /* ---------- IMAGES ---------- */
+
+    .case-hero-image,
+    .case-full-image {
+        width: 100%;
+    }
+
+    .case-hero-image img,
+    .case-full-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .case-full-image span {
+        display: block;
+        padding: 0.75rem 1rem;
+    }
+
+
+    /* ---------- SECTIONS ---------- */
+
+    .case-section {
+        display: block;
+        padding: 5rem 1rem;
+    }
+
+    .case-section-label {
+        margin-bottom: 2rem;
+    }
+
+    .case-section-content {
+        width: 100%;
+    }
+
+    .case-section-content h2 {
+        font-size: clamp(2rem, 9vw, 4rem);
+        line-height: 1;
+        margin-bottom: 2rem;
+    }
+
+    .case-section-content p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+
+    /* ---------- TWO COLUMN ---------- */
+
+    .case-two-column {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+
+    /* ---------- PROCESS ---------- */
+
+    .case-process-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+
+    /* ---------- IMAGE + TEXT ---------- */
+
+    .case-split {
+        grid-template-columns: 1fr;
+    }
+
+    .case-split-image {
+        order: 1;
+    }
+
+    .case-split-text {
+        order: 2;
+        padding: 3rem 1rem;
+    }
+
+    .case-split-text h2 {
+        font-size: clamp(2.5rem, 11vw, 4rem);
+    }
+
+
+    /* ---------- DESIGN SYSTEM ---------- */
+
+    .case-system-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .system-card {
+        min-height: 180px;
+    }
+
+
+    /* ---------- FINAL DESIGN ---------- */
+
+    .case-final {
+        padding: 5rem 1rem;
+    }
+
+    .case-final h2 {
+        font-size: clamp(3rem, 13vw, 5rem);
+        line-height: 0.9;
+    }
+
+    .case-final p {
+        max-width: 100%;
+    }
+
+    .case-final img {
+        width: 100%;
+        height: auto;
+    }
+
+
+    /* ---------- OUTCOME ---------- */
+
+    .case-results {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .case-results strong {
+        font-size: 4rem;
+    }
+
+
+    /* ---------- REFLECTION ---------- */
+
+    .case-reflection {
+        padding: 6rem 1rem;
+    }
+
+    .case-reflection h2 {
+        font-size: clamp(2.5rem, 11vw, 5rem);
+        line-height: 0.95;
+    }
+
+
+    /* ---------- NEXT PROJECT ---------- */
+
+    .case-next {
+        padding: 5rem 1rem;
+    }
+
+    .case-next h2 {
+        font-size: clamp(3rem, 13vw, 6rem);
+        line-height: 0.9;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    #socials {
+        width: 100%;
+    }
+
+}
+
+.case-split-image video{
+    max-width: 100%;
+    mix-blend-mode: darken;
+    all: unset; /* Resets most properties to their initial/unspecified state */
+    display: block;
+    max-width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 20px;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
 }

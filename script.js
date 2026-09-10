@@ -405,6 +405,49 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
+   PROJECT NUMBER SORTING
+   The number inside .project-number controls project order.
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const projectGrid =
+        document.querySelector(".home-project-grid");
+
+    if (!projectGrid) {
+        return;
+    }
+
+    const projects =
+        Array.from(
+            projectGrid.querySelectorAll(".project-card")
+        );
+
+    projects.sort((a, b) => {
+
+        const numberA =
+            parseInt(
+                a.querySelector(".project-number")?.textContent.trim() || "999",
+                10
+            );
+
+        const numberB =
+            parseInt(
+                b.querySelector(".project-number")?.textContent.trim() || "999",
+                10
+            );
+
+        return numberA - numberB;
+
+    });
+
+    projects.forEach(project => {
+        projectGrid.appendChild(project);
+    });
+
+});
+
+/* =========================================================
    05. HACKDAVIS CAROUSEL
 ========================================================= */
 
